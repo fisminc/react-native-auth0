@@ -41,6 +41,10 @@ RCT_EXPORT_METHOD(hide) {
     [self terminateWithError:nil dismissing:YES animated:YES];
 }
 
+RCT_EXPORT_METHOD(hideAuthenticationSession) {
+    [(ASWebAuthenticationSession*) self.authenticationSession cancel];
+}
+
 RCT_EXPORT_METHOD(hasValidCredentialManagerInstance:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
     BOOL valid = [self checkHasValidCredentialManagerInstance];
